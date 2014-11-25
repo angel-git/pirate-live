@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router','contact'])
+angular.module('myApp', ['ui.router','contact', 'admin', 'home'])
 .run (['$rootScope', '$state', ($rootScope, $state) ->
   $rootScope.$state = $state;
 ])
@@ -16,4 +16,5 @@ angular.module('myApp', ['ui.router','contact'])
     controller: 'AdminController'
   $stateProvider.state 'home',
     url: "/",
-    templateUrl: "view/home.html"
+    templateUrl: "view/home.html",
+    controller: 'HomeController'

@@ -1,5 +1,5 @@
 (function() {
-  angular.module('myApp', ['ui.router', 'contact']).run([
+  angular.module('myApp', ['ui.router', 'contact', 'admin', 'home']).run([
     '$rootScope', '$state', function($rootScope, $state) {
       return $rootScope.$state = $state;
     }
@@ -17,7 +17,8 @@
     });
     return $stateProvider.state('home', {
       url: "/",
-      templateUrl: "view/home.html"
+      templateUrl: "view/home.html",
+      controller: 'HomeController'
     });
   });
 
