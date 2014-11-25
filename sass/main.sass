@@ -1,0 +1,52 @@
+$font-color: #fff
+$header-background-color: #f04949
+$header-font-color: #fff
+$header-font-color-hover: #555
+
+body
+  margin: 0
+  font-family: 'Droid Sans', sans-serif
+  font-size: 14px
+  line-height: 20px
+  color: $font-color
+  background-color: #203748
+
+.main-container
+  margin: 10px
+
+a.navbar-brand img
+  border-radius: 50%
+  border: 5px solid #fff
+
+a.navbar-brand img:hover
+  border: 5px solid $header-font-color-hover
+
+//override bootstrap
+.navbar-default
+  color: $header-font-color
+  background-color: $header-background-color
+  border: none
+
+.navbar
+  border: none
+  border-radius: 0
+
+.navbar-brand
+  padding: 10px 15px
+
+.navbar-default .navbar-nav>li>a
+  color: $header-font-color
+  font-size: 18px
+
+.navbar-default .navbar-brand
+  color: $header-font-color
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
+  color: $header-font-color-hover
+  background: none
+
+.navbar .nav > li
+  margin: 22px 30px
+
+.navbar-toggle.collapsed
+  margin: 31px 30px
