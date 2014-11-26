@@ -50,6 +50,10 @@ table.table tbody tr {
   cursor: pointer; }
   table.table tbody tr:hover {
     background-color: #30526b; }
+  table.table tbody tr.firstep {
+    background-color: #ccff90; }
+  table.table tbody tr.lastep {
+    background-color: #ff7997; }
 
 .torrent-list {
   width: 100%;

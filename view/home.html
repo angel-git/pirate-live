@@ -9,8 +9,8 @@
 
     <table class="table">
         <tbody>
-        <tr ng-click="getTorrents(serie)" ng-repeat="serie in seriesList">
-            <td>
+        <tr ng-click="getTorrents(serie)" ng-repeat="serie in seriesList" class="{{serie.className}}"  >
+            <td >
                 <div>{{serie.serie}}</div>
                 <div>{{serie.episode}}</div>
             </td>

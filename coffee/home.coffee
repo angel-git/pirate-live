@@ -45,7 +45,6 @@ angular.module('home', [])
             leeds = jresult.find("td").eq(3).text()
             torrent = new Torrent(name, leeds, seeds, link, desc)
             torrentList.push(torrent)
-        console.log(torrentList)
         $scope.torrentList = torrentList
 
     searchSeries(new Date())

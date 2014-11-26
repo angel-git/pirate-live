@@ -56,7 +56,6 @@
             torrentList.push(torrent);
           }
         }
-        console.log(torrentList);
         return $scope.torrentList = torrentList;
       });
     };
