@@ -1,6 +1,8 @@
 calendarContent = ''
 
 angular.module('home', [])
+  .config ($compileProvider) ->
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|magnet):/)
   .controller 'HomeController', ($scope, $http) ->
 
 

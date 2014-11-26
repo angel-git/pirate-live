@@ -3,7 +3,9 @@
 
   calendarContent = '';
 
-  angular.module('home', []).controller('HomeController', function($scope, $http) {
+  angular.module('home', []).config(function($compileProvider) {
+    return $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|magnet):/);
+  }).controller('HomeController', function($scope, $http) {
     var getSeriesDate, searchSeries;
     searchSeries = function(dateToSeach) {
       return getSeriesDate(dateToSeach, $http, function(response) {
