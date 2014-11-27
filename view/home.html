@@ -1,43 +1,59 @@
-<div class="site-wrap" ng-class="{'serie-selected': torrentList}" >
-    <h1>Welcome!</h1>
+<div class="site-wrap">
+    <div class="day-controls">
+        <button class="btn btn-default" ng-click="previousDay()">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            back</button>
+        <span id="today"></span>
+        <button class="btn btn-default" ng-click="nextDay()">
+            <span class="glyphicon glyphicon-arrow-right"></span>
+            next</button>
+    </div>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default {{serie.className}}" ng-repeat="serie in seriesList">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+               href="#collapse{{serie.serieId}}"
+               aria-expanded="false" aria-controls="collapse{{serie.serieId}}">
+                <div class="panel-heading" role="tab" id="heading{{serie.serieId}}"  ng-click="getTorrents(serie)">
+                    <h4 class="panel-title">
+                        {{serie.serie}} {{serie.episode}}
+                    </h4>
+                </div>
+            </a>
 
-    <p>I'm updating this site... THE STYLE IS SHIT!</p>
+            <div id="collapse{{serie.serieId}}" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="heading{{serie.serieId}}">
+                <div class="panel-body">
+                    <div ng-if="torrentList.length == 0">
+                        <p class="no-torrent">loading torrents....</p>
+                    </div>
+                    <table class="table" ng-if="serieSelected == serie && torrentList.length > 0">
+                        <thead>
+                        <tr>
+                            <th>torrent</th>
+                            <th>seeds</th>
+                            <th>leeds</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="torrent in torrentList">
+                            <td>
+                                <div><a href="{{torrent.link}}">{{torrent.name}}</a></div>
+                                <div>{{torrent.desc}}</div>
+                            </td>
+                            <td>{{torrent.seeds}}</td>
+                            <td>{{torrent.leeds}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <p>As this is calling an outside site, use an extension like <a
-            href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/support">CORS</a>
-    </p>
 
-    <table class="table">
-        <tbody>
-        <tr ng-click="getTorrents(serie)" ng-repeat="serie in seriesList" class="{{serie.className}}"  >
-            <td >
-                <div>{{serie.serie}}</div>
-                <div>{{serie.episode}}</div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 
-<aside class="torrent-list" ng-show="torrentList">
-    <button class="btn btn-default" ng-click="goBack()">go back</button>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>torrent</th>
-            <th>seeds</th>
-            <th>leeds</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="torrent in torrentList">
-            <td>
-                <div><a href="{{torrent.link}}">{{torrent.name}}</a></div>
-                <div>{{torrent.desc}}</div>
-            </td>
-            <td>{{torrent.seeds}}</td>
-            <td>{{torrent.leeds}}</td>
-        </tr>
-        </tbody>
-    </table>
-</aside>
+<!--<aside class="torrent-list" ng-show="torrentList">-->
+<!--<button class="btn btn-default" ng-click="goBack()">go back</button>-->
+
+<!--</aside>-->

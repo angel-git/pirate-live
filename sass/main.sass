@@ -1,9 +1,12 @@
 $font-color: #fff
-$header-background-color: #f04949
+$header-background-color: #4997F0
 $header-font-color: #fff
 $header-font-color-hover: #555
+$link-font-color: #cccccc
+$link-font-color-hover: #4997F0
+$main-background-color: #202B48
+$no-torrent-font-color: #a94442
 
-$main-background-color: #203748
 body
   margin: 0
   font-family: 'Droid Sans', sans-serif
@@ -13,15 +16,36 @@ body
   background-color: $main-background-color
   overflow-x: hidden
 
+a
+  color: $link-font-color
+  &:active, &:focus
+    text-decoration: none
+    color: $link-font-color
+  &:hover
+    color: $link-font-color-hover
+    text-decoration: none
+
+.container-fluid
+  height: 100px
 .main-container
   margin: 10px
 
-a.navbar-brand img
-  border-radius: 50%
-  border: 5px solid #fff
 
-a.navbar-brand img:hover
-  border: 5px solid $header-font-color-hover
+.panel
+  background: none
+  box-shadow: none
+.panel-default
+  border: none
+
+.navbar-brand
+  height: 75px
+  img
+    border-radius: 50%
+    border: 5px solid #fff
+    &:hover
+      border: 5px solid $header-font-color-hover
+.panel-title
+  text-align: center
 
 //override bootstrap
 .navbar-default
@@ -54,9 +78,14 @@ a.navbar-brand img:hover
   margin: 31px 30px
 
 table.table tbody tr
-  cursor: pointer
   &:hover
     background-color: lighten($main-background-color, 10)
+  &.firstep
+    background-color: #ccff90
+  &.lastep
+    background-color: #ff7997
+
+.panel.panel-default
   &.firstep
     background-color: #ccff90
   &.lastep
@@ -84,3 +113,15 @@ table.table tbody tr
 
 .serie-selected.site-wrap
   left: 110%
+
+.no-torrent
+  text-align: center
+  color: $no-torrent-font-color
+
+.day-controls
+  text-align: center
+  padding: 10px
+
+#today
+  padding-left: 10px
+  padding-right: 10px

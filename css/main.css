@@ -4,22 +4,45 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: white;
-  background-color: #203748;
+  background-color: #202b48;
   overflow-x: hidden; }
+
+a {
+  color: #cccccc; }
+  a:active, a:focus {
+    text-decoration: none;
+    color: #cccccc; }
+  a:hover {
+    color: #4997f0;
+    text-decoration: none; }
+
+.container-fluid {
+  height: 100px; }
 
 .main-container {
   margin: 10px; }
 
-a.navbar-brand img {
-  border-radius: 50%;
-  border: 5px solid white; }
+.panel {
+  background: none;
+  box-shadow: none; }
 
-a.navbar-brand img:hover {
-  border: 5px solid #555555; }
+.panel-default {
+  border: none; }
+
+.navbar-brand {
+  height: 75px; }
+  .navbar-brand img {
+    border-radius: 50%;
+    border: 5px solid white; }
+    .navbar-brand img:hover {
+      border: 5px solid #555555; }
+
+.panel-title {
+  text-align: center; }
 
 .navbar-default {
   color: white;
-  background-color: #f04949;
+  background-color: #4997f0;
   border: none; }
 
 .navbar {
@@ -46,14 +69,17 @@ a.navbar-brand img:hover {
 .navbar-toggle.collapsed {
   margin: 31px 30px; }
 
-table.table tbody tr {
-  cursor: pointer; }
-  table.table tbody tr:hover {
-    background-color: #30526b; }
-  table.table tbody tr.firstep {
-    background-color: #ccff90; }
-  table.table tbody tr.lastep {
-    background-color: #ff7997; }
+table.table tbody tr:hover {
+  background-color: #30406b; }
+table.table tbody tr.firstep {
+  background-color: #ccff90; }
+table.table tbody tr.lastep {
+  background-color: #ff7997; }
+
+.panel.panel-default.firstep {
+  background-color: #ccff90; }
+.panel.panel-default.lastep {
+  background-color: #ff7997; }
 
 .torrent-list {
   width: 100%;
@@ -77,3 +103,15 @@ table.table tbody tr {
 
 .serie-selected.site-wrap {
   left: 110%; }
+
+.no-torrent {
+  text-align: center;
+  color: #a94442; }
+
+.day-controls {
+  text-align: center;
+  padding: 10px; }
+
+#today {
+  padding-left: 10px;
+  padding-right: 10px; }
