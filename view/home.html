@@ -1,22 +1,26 @@
 <div class="site-wrap">
     <div class="day-controls">
-        <button class="btn btn-default" ng-click="previousDay()">
+        <button class="btn btn-custom" ng-click="previousDay()">
             <span class="glyphicon glyphicon-arrow-left"></span>
-            back</button>
+            <strong>back</strong></button>
         <span id="today"></span>
-        <button class="btn btn-default" ng-click="nextDay()">
+        <button class="btn btn-custom" ng-click="nextDay()">
+            <strong>next</strong>
             <span class="glyphicon glyphicon-arrow-right"></span>
-            next</button>
+            </button>
     </div>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default {{serie.className}}" ng-repeat="serie in seriesList">
+        <div class="panel panel-default {{serie.className}}" ng-repeat="serie in seriesList" ng-class-even="'panel-default-even'" ng-class-odd="'panel-default-odd'">
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
                href="#collapse{{serie.serieId}}"
                aria-expanded="false" aria-controls="collapse{{serie.serieId}}">
                 <div class="panel-heading" role="tab" id="heading{{serie.serieId}}"  ng-click="getTorrents(serie)">
                     <h4 class="panel-title">
-                        {{serie.serie}} {{serie.episode}}
+                        {{serie.serie}}
                     </h4>
+                    <h5 class="panel-title">
+                        {{serie.episode}}
+                    </h5>
                 </div>
             </a>
 

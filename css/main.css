@@ -1,17 +1,18 @@
 body {
   margin: 0;
-  font-family: "Droid Sans", sans-serif;
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
   font-size: 14px;
   line-height: 20px;
-  color: white;
-  background-color: #202b48;
+  color: #202b48;
+  background-color: #f7f8f8;
   overflow-x: hidden; }
 
 a {
-  color: #cccccc; }
+  color: #202b48; }
   a:active, a:focus {
     text-decoration: none;
-    color: #cccccc; }
+    color: #202b48; }
   a:hover {
     color: #4997f0;
     text-decoration: none; }
@@ -22,12 +23,30 @@ a {
 .main-container {
   margin: 10px; }
 
-.panel {
-  background: none;
-  box-shadow: none; }
+.panel-group {
+  background-color: #fdfdfe;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  padding: 10px 10px 0px 10px;
+  margin-bottom: 0; }
+  .panel-group .panel + .panel {
+    margin-top: 0; }
 
-.panel-default {
-  border: none; }
+.panel.panel-default {
+  background: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin: 10px 0; }
+  .panel.panel-default:hover {
+    border: 1px solid #e7e7e7;
+    background-color: #f9faf9; }
+  .panel.panel-default h4.panel-title {
+    text-align: center;
+    font-weight: bold; }
+  .panel.panel-default h5.panel-title {
+    text-align: center;
+    color: #645f80; }
 
 .navbar-brand {
   height: 75px; }
@@ -36,9 +55,6 @@ a {
     border: 5px solid white; }
     .navbar-brand img:hover {
       border: 5px solid #555555; }
-
-.panel-title {
-  text-align: center; }
 
 .navbar-default {
   color: white;
@@ -70,16 +86,16 @@ a {
   margin: 31px 30px; }
 
 table.table tbody tr:hover {
-  background-color: #30406b; }
+  background-color: white; }
 table.table tbody tr.firstep {
-  background-color: #ccff90; }
+  background-color: #def7e8; }
 table.table tbody tr.lastep {
-  background-color: #ff7997; }
+  background-color: #f7dede; }
 
 .panel.panel-default.firstep {
-  background-color: #ccff90; }
+  background-color: #def7e8; }
 .panel.panel-default.lastep {
-  background-color: #ff7997; }
+  background-color: #f7dede; }
 
 .torrent-list {
   width: 100%;
@@ -92,14 +108,18 @@ table.table tbody tr.lastep {
   z-index: 0; }
 
 .site-wrap {
-  min-height: 100%;
-  min-width: 100%;
   position: relative;
   top: 0;
   bottom: 100%;
   left: 0;
   z-index: 1;
-  transition: left 0.5s; }
+  transition: left 0.5s;
+  margin: 0 auto;
+  max-width: 650px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #fdfdfe; }
 
 .serie-selected.site-wrap {
   left: 110%; }
@@ -115,3 +135,16 @@ table.table tbody tr.lastep {
 #today {
   padding-left: 10px;
   padding-right: 10px; }
+
+.btn.btn-custom {
+  color: white;
+  font-size: 1.2em;
+  -webkit-font-smoothing: none;
+  background-color: #2ab17b;
+  border-color: #2ab17b;
+  border-bottom: 3px solid #2a8f59; }
+  .btn.btn-custom:hover {
+    border-bottom: 3px solid #297441; }
+
+#today {
+  font-size: 1.5em; }

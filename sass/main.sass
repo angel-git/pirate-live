@@ -1,15 +1,25 @@
-$font-color: #fff
+$font-color: #202B48
 $header-background-color: #4997F0
 $header-font-color: #fff
 $header-font-color-hover: #555
-$link-font-color: #cccccc
+$link-font-color: #202B48
 $link-font-color-hover: #4997F0
-$main-background-color: #202B48
+$main-background-color: #f7f8f8
 $no-torrent-font-color: #a94442
+$episode-hover-border-color: #e7e7e7
+$episode-hover-background-color: #f9faf9
+$episode-panel-background-color: #fdfdfe
+$episode-sub-font-color: #645F80
+$btn-custom-background-color: #2ab17b
+$btn-custom-border-bottom-color: #2A8F59
+$btn-custom-border-bottom-hover-color: #297441
+$episode-first-background-color: #DEF7E8
+$episode-last-background-color: #F7DEDE
 
 body
   margin: 0
-  font-family: 'Droid Sans', sans-serif
+  font-family: 'Lato', sans-serif
+  -webkit-font-smoothing: antialiased
   font-size: 14px
   line-height: 20px
   color: $font-color
@@ -27,15 +37,39 @@ a
 
 .container-fluid
   height: 100px
+
 .main-container
   margin: 10px
 
+.panel-group
+  background-color: $episode-panel-background-color
+  border: 1px solid $episode-hover-border-color
+  border-radius: 3px
+  padding: 10px 10px 0px 10px
+  margin-bottom: 0
+  .panel+.panel
+    margin-top: 0
 
-.panel
+
+
+
+.panel.panel-default
   background: none
   box-shadow: none
-.panel-default
-  border: none
+  border: 1px solid transparent
+  border-radius: 3px
+  margin: 10px 0
+  &:hover
+    border: 1px solid $episode-hover-border-color
+    background-color: $episode-hover-background-color
+
+  h4.panel-title
+    text-align: center
+    font-weight: bold
+  h5.panel-title
+    text-align: center
+    color: $episode-sub-font-color
+
 
 .navbar-brand
   height: 75px
@@ -44,8 +78,7 @@ a
     border: 5px solid #fff
     &:hover
       border: 5px solid $header-font-color-hover
-.panel-title
-  text-align: center
+
 
 //override bootstrap
 .navbar-default
@@ -60,14 +93,14 @@ a
 .navbar-brand
   padding: 10px 15px
 
-.navbar-default .navbar-nav>li>a
+.navbar-default .navbar-nav > li > a
   color: $header-font-color
   font-size: 18px
 
 .navbar-default .navbar-brand
   color: $header-font-color
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
   color: $header-font-color-hover
   background: none
 
@@ -81,15 +114,15 @@ table.table tbody tr
   &:hover
     background-color: lighten($main-background-color, 10)
   &.firstep
-    background-color: #ccff90
+    background-color: $episode-first-background-color
   &.lastep
-    background-color: #ff7997
+    background-color: $episode-last-background-color
 
 .panel.panel-default
   &.firstep
-    background-color: #ccff90
+    background-color: $episode-first-background-color
   &.lastep
-    background-color: #ff7997
+    background-color: $episode-last-background-color
 
 .torrent-list
   width: 100%
@@ -102,14 +135,18 @@ table.table tbody tr
   z-index: 0
 
 .site-wrap
-  min-height: 100%
-  min-width: 100%
   position: relative
   top: 0
   bottom: 100%
   left: 0
   z-index: 1
   transition: left 0.5s
+  margin: 0 auto
+  max-width: 650px
+  border: 1px solid $episode-hover-border-color
+  border-radius: 3px
+  padding: 10px
+  background-color: $episode-panel-background-color
 
 .serie-selected.site-wrap
   left: 110%
@@ -125,3 +162,16 @@ table.table tbody tr
 #today
   padding-left: 10px
   padding-right: 10px
+
+.btn.btn-custom
+  color: white
+  font-size: 1.2em
+  -webkit-font-smoothing: none
+  background-color: $btn-custom-background-color
+  border-color: $btn-custom-background-color
+  border-bottom: 3px solid $btn-custom-border-bottom-color
+  &:hover
+    border-bottom: 3px solid $btn-custom-border-bottom-hover-color
+
+#today
+  font-size: 1.5em
