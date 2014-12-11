@@ -14,6 +14,7 @@ angular.module('home', [])
       getSeriesDate dateToSeach, $http, (response) ->
         $scope.seriesList = response
         $('#today').text(dateToSeach.getDate()+ ' ' + monthNames[dateToSeach.getMonth()])
+      return false
 
     getSeriesDate = (dateToSearch, $http, success) ->
       monthCorrected = dateToSearch.getMonth() + 1

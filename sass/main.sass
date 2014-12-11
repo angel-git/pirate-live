@@ -10,9 +10,7 @@ $episode-hover-border-color: #e7e7e7
 $episode-hover-background-color: #f9faf9
 $episode-panel-background-color: #fdfdfe
 $episode-sub-font-color: #645F80
-$btn-custom-background-color: #2ab17b
-$btn-custom-border-bottom-color: #2A8F59
-$btn-custom-border-bottom-hover-color: #297441
+$btn-custom-background-color: #4997F0
 $episode-first-background-color: #DEF7E8
 $episode-last-background-color: #F7DEDE
 
@@ -85,6 +83,7 @@ a
   color: $header-font-color
   background-color: $header-background-color
   border: none
+  box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.71)
 
 .navbar
   border: none
@@ -169,9 +168,11 @@ table.table tbody tr
   -webkit-font-smoothing: none
   background-color: $btn-custom-background-color
   border-color: $btn-custom-background-color
-  border-bottom: 3px solid $btn-custom-border-bottom-color
+  border-bottom: 3px solid darken($btn-custom-background-color, 20%)
   &:hover
-    border-bottom: 3px solid $btn-custom-border-bottom-hover-color
+    border-bottom: 3px solid darken($btn-custom-background-color, 30%)
+  &:focus
+    outline: 0
 
 #today
   font-size: 1.5em

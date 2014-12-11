@@ -59,7 +59,8 @@ a {
 .navbar-default {
   color: white;
   background-color: #4997f0;
-  border: none; }
+  border: none;
+  box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.71); }
 
 .navbar {
   border: none;
@@ -140,11 +141,13 @@ table.table tbody tr.lastep {
   color: white;
   font-size: 1.2em;
   -webkit-font-smoothing: none;
-  background-color: #2ab17b;
-  border-color: #2ab17b;
-  border-bottom: 3px solid #2a8f59; }
+  background-color: #4997f0;
+  border-color: #4997f0;
+  border-bottom: 3px solid #1064c3; }
   .btn.btn-custom:hover {
-    border-bottom: 3px solid #297441; }
+    border-bottom: 3px solid #0c4c94; }
+  .btn.btn-custom:focus {
+    outline: 0; }
 
 #today {
   font-size: 1.5em; }

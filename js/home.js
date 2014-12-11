@@ -14,10 +14,11 @@
   }).controller('HomeController', function($scope, $http) {
     var getSeriesDate, searchSeries;
     searchSeries = function(dateToSeach) {
-      return getSeriesDate(dateToSeach, $http, function(response) {
+      getSeriesDate(dateToSeach, $http, function(response) {
         $scope.seriesList = response;
         return $('#today').text(dateToSeach.getDate() + ' ' + monthNames[dateToSeach.getMonth()]);
       });
+      return false;
     };
     getSeriesDate = function(dateToSearch, $http, success) {
       var monthCorrected, todayFormat;
