@@ -27,7 +27,7 @@ a {
   background-color: #fdfdfe;
   border: 1px solid #e7e7e7;
   border-radius: 3px;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 10px 0 10px;
   margin-bottom: 0; }
   .panel-group .panel + .panel {
     margin-top: 0; }
@@ -37,10 +37,13 @@ a {
   box-shadow: none;
   border: 1px solid transparent;
   border-radius: 3px;
-  margin: 10px 0; }
+  margin: 10px 0;
+  transition: all 0.1s ease; }
   .panel.panel-default:hover {
     border: 1px solid #e7e7e7;
     background-color: #f9faf9; }
+  .panel.panel-default a {
+    transition: all 0.1s ease; }
   .panel.panel-default h4.panel-title {
     text-align: center;
     font-weight: bold; }
@@ -141,11 +144,13 @@ table.table tbody tr.lastep {
   color: white;
   font-size: 1.2em;
   -webkit-font-smoothing: none;
-  background-color: #4997f0;
-  border-color: #4997f0;
-  border-bottom: 3px solid #1064c3; }
+  background-color: #8049f0;
+  border-color: #8049f0;
+  border-bottom: 3px solid #4b10c3;
+  transition: all 0.2s ease; }
   .btn.btn-custom:hover {
-    border-bottom: 3px solid #0c4c94; }
+    border-bottom: 3px solid #390c94;
+    background-color: #9061f2; }
   .btn.btn-custom:focus {
     outline: 0; }
 

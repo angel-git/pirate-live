@@ -10,7 +10,7 @@ $episode-hover-border-color: #e7e7e7
 $episode-hover-background-color: #f9faf9
 $episode-panel-background-color: #fdfdfe
 $episode-sub-font-color: #645F80
-$btn-custom-background-color: #4997F0
+$btn-custom-background-color: #8049F0
 $episode-first-background-color: #DEF7E8
 $episode-last-background-color: #F7DEDE
 
@@ -43,7 +43,7 @@ a
   background-color: $episode-panel-background-color
   border: 1px solid $episode-hover-border-color
   border-radius: 3px
-  padding: 10px 10px 0px 10px
+  padding: 10px 10px 0 10px
   margin-bottom: 0
   .panel+.panel
     margin-top: 0
@@ -57,9 +57,12 @@ a
   border: 1px solid transparent
   border-radius: 3px
   margin: 10px 0
+  transition: all 0.1s ease
   &:hover
     border: 1px solid $episode-hover-border-color
     background-color: $episode-hover-background-color
+  a
+    transition: all 0.1s ease
 
   h4.panel-title
     text-align: center
@@ -169,8 +172,10 @@ table.table tbody tr
   background-color: $btn-custom-background-color
   border-color: $btn-custom-background-color
   border-bottom: 3px solid darken($btn-custom-background-color, 20%)
+  transition: all 0.2s ease
   &:hover
     border-bottom: 3px solid darken($btn-custom-background-color, 30%)
+    background-color: lighten($btn-custom-background-color, 5%)
   &:focus
     outline: 0
 

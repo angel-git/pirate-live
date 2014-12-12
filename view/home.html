@@ -10,7 +10,7 @@
             </button>
     </div>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default {{serie.className}}" ng-repeat="serie in seriesList" ng-class-even="'panel-default-even'" ng-class-odd="'panel-default-odd'">
+        <div class="panel panel-default {{serie.className}}" ng-repeat="serie in seriesList">
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
                href="#collapse{{serie.serieId}}"
                aria-expanded="false" aria-controls="collapse{{serie.serieId}}">
