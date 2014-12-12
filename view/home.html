@@ -59,18 +59,14 @@
 
 <div ng-show="errorOnCall">
     <div class="site-wrap">
-        <h1>CORS error!</h1>
         <h2>Can't load the TV Calendar!</h2>
         <p>As this is calling an outside site, use an extension like <a
                 href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/support">CORS</a>
+            to enable cross-site calls.
         </p>
-        <div class="bg-danger text-danger">Security risk:
-            <p>enabling CORS on your browser is a potential risk! Please disabled if after using this site</p>
+        <div class="bg-danger text-danger"><h1 style="font-weight: bolder">Security risk!!!</h1>
+            <p>enabling CORS on your browser is a potential risk! Please disable it if after using this site</p>
         </div>
 
     </div>
 </div>
-<!--<aside class="torrent-list" ng-show="torrentList">-->
-<!--<button class="btn btn-default" ng-click="goBack()">go back</button>-->
-
-<!--</aside>-->
