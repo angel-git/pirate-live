@@ -1,0 +1,183 @@
+$font-color: #202B48
+$header-background-color: #4997F0
+$header-font-color: #fff
+$header-font-color-hover: #555
+$link-font-color: #202B48
+$link-font-color-hover: #4997F0
+$main-background-color: #f7f8f8
+$no-torrent-font-color: #a94442
+$episode-hover-border-color: #e7e7e7
+$episode-hover-background-color: #f9faf9
+$episode-panel-background-color: #fdfdfe
+$episode-sub-font-color: #645F80
+$btn-custom-background-color: #8049F0
+$episode-first-background-color: #DEF7E8
+$episode-last-background-color: #F7DEDE
+
+body
+  margin: 0
+  font-family: 'Lato', sans-serif
+  -webkit-font-smoothing: antialiased
+  font-size: 14px
+  line-height: 20px
+  color: $font-color
+  background-color: $main-background-color
+  overflow-x: hidden
+
+a
+  color: $link-font-color
+  &:active, &:focus
+    text-decoration: none
+    color: $link-font-color
+  &:hover
+    color: $link-font-color-hover
+    text-decoration: none
+
+.container-fluid
+  height: 100px
+
+.main-container
+  margin: 10px
+
+.panel-group
+  background-color: $episode-panel-background-color
+  border: 1px solid $episode-hover-border-color
+  border-radius: 3px
+  padding: 10px 10px 0 10px
+  margin-bottom: 0
+  .panel+.panel
+    margin-top: 0
+
+
+
+
+.panel.panel-default
+  background: none
+  box-shadow: none
+  border: 1px solid transparent
+  border-radius: 3px
+  margin: 10px 0
+  transition: all 0.1s ease
+  &:hover
+    border: 1px solid $episode-hover-border-color
+    background-color: $episode-hover-background-color
+  a
+    transition: all 0.1s ease
+
+  h4.panel-title
+    text-align: center
+    font-weight: bold
+  h5.panel-title
+    text-align: center
+    color: $episode-sub-font-color
+
+
+.navbar-brand
+  height: 75px
+  img
+    border-radius: 50%
+    border: 5px solid #fff
+    &:hover
+      border: 5px solid $header-font-color-hover
+
+
+//override bootstrap
+.navbar-default
+  color: $header-font-color
+  background-color: $header-background-color
+  border: none
+  box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.71)
+
+.navbar
+  border: none
+  border-radius: 0
+
+.navbar-brand
+  padding: 10px 15px
+
+.navbar-default .navbar-nav > li > a
+  color: $header-font-color
+  font-size: 18px
+
+.navbar-default .navbar-brand
+  color: $header-font-color
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+  color: $header-font-color-hover
+  background: none
+
+.navbar .nav > li
+  margin: 22px 30px
+
+.navbar-toggle.collapsed
+  margin: 31px 30px
+
+table.table tbody tr
+  &:hover
+    background-color: lighten($main-background-color, 10)
+  &.firstep
+    background-color: $episode-first-background-color
+  &.lastep
+    background-color: $episode-last-background-color
+
+.panel.panel-default
+  &.firstep
+    background-color: $episode-first-background-color
+  &.lastep
+    background-color: $episode-last-background-color
+
+.torrent-list
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 100px
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 0
+
+.site-wrap
+  position: relative
+  top: 0
+  bottom: 100%
+  left: 0
+  z-index: 1
+  transition: left 0.5s
+  margin: 0 auto
+  max-width: 650px
+  border: 1px solid $episode-hover-border-color
+  border-radius: 3px
+  padding: 10px
+  background-color: $episode-panel-background-color
+
+.serie-selected.site-wrap
+  left: 110%
+
+.no-torrent
+  text-align: center
+  color: $no-torrent-font-color
+
+.day-controls
+  text-align: center
+  padding: 10px
+
+#today
+  padding-left: 10px
+  padding-right: 10px
+
+.btn.btn-custom
+  color: white
+  font-size: 1.2em
+  -webkit-font-smoothing: none
+  background-color: $btn-custom-background-color
+  border-color: $btn-custom-background-color
+  border-bottom: 3px solid darken($btn-custom-background-color, 20%)
+  transition: all 0.2s ease
+  &:hover
+    border-bottom: 3px solid darken($btn-custom-background-color, 30%)
+    background-color: lighten($btn-custom-background-color, 5%)
+  &:focus
+    outline: 0
+
+#today
+  font-size: 1.5em
