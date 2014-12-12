@@ -27,6 +27,8 @@ angular.module('home', [])
           else
             alert('something went wrong with the calendar connection: ' + response.statusCode)
             calendarContent = ''
+        .error () ->
+          $scope.errorOnCall = true
       else
         parseCalendar(todayFormat, success)
 

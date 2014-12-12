@@ -33,6 +33,8 @@
             alert('something went wrong with the calendar connection: ' + response.statusCode);
             return calendarContent = '';
           }
+        }).error(function() {
+          return $scope.errorOnCall = true;
         });
       } else {
         return parseCalendar(todayFormat, success);
