@@ -45,11 +45,11 @@
       $scope.serieSelected = serie;
       $scope.torrentList = [];
       episode = serie.serie.concat(' ').concat(serie.episode);
-      episode = episode.replace(/\s/g, '%20');
-      urlRequest = 'http://thepiratebay.se/search/' + episode + '/0/7/0';
+      episode = episode.replace(/\s/g, '+');
+      urlRequest = 'https://oldpiratebay.org/search.php?q=' + episode + '&Torrent_sort=seeders.desc';
       return $http.get(urlRequest).success(function(data, status, headers, config) {
-        var desc, detLink, jresult, leeds, length, link, name, result, searchResult, seeds, torrent, torrentList, _i;
-        searchResult = $(data).find('#searchResult').find('tr');
+        var jresult, leeds, length, link, name, result, searchResult, seeds, torrent, torrentList, _i;
+        searchResult = $(data).find('#serps').find('tr');
         torrentList = [];
         if (searchResult.length === 0) {
           if (typeof success === "function") {
@@ -59,13 +59,11 @@
           length = searchResult.length > 3 ? 4 : searchResult.length;
           for (result = _i = 1; 1 <= length ? _i <= length : _i >= length; result = 1 <= length ? ++_i : --_i) {
             jresult = $(searchResult[result]);
-            detLink = $(jresult.find(".detName")[0]).find(".detLink")[0];
-            name = detLink.text;
+            name = $(jresult.find("td").eq(0).find("span")[0]).text();
             link = $(jresult.find("a[href^=magnet]")[0]).attr("href");
-            desc = $(jresult.find("td")[1]).find(".detDesc").eq(0).text();
-            seeds = jresult.find("td").eq(2).text();
-            leeds = jresult.find("td").eq(3).text();
-            torrent = new Torrent(name, leeds, seeds, link, desc);
+            seeds = jresult.find("td").eq(3).text();
+            leeds = jresult.find("td").eq(4).text();
+            torrent = new Torrent(name, leeds, seeds, link, '');
             torrentList.push(torrent);
           }
         }

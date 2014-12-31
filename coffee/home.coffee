@@ -37,10 +37,10 @@ angular.module('home', [])
       $scope.serieSelected = serie
       $scope.torrentList = []
       episode = serie.serie.concat(' ').concat(serie.episode)
-      episode = episode.replace /\s/g,'%20'
-      urlRequest = 'http://thepiratebay.se/search/'+ episode + '/0/7/0'
+      episode = episode.replace /\s/g,'+'
+      urlRequest = 'https://oldpiratebay.org/search.php?q='+ episode + '&Torrent_sort=seeders.desc'
       $http.get(urlRequest).success (data, status, headers, config) ->
-        searchResult = $(data).find('#searchResult').find('tr')
+        searchResult = $(data).find('#serps').find('tr')
         torrentList = []
         if searchResult.length == 0
           success? torrentList
@@ -48,13 +48,11 @@ angular.module('home', [])
           length = if (searchResult.length > 3) then 4 else searchResult.length
           for result in [1..length]
             jresult = $(searchResult[result])
-            detLink = $(jresult.find(".detName")[0]).find(".detLink")[0]
-            name = detLink.text
+            name = $(jresult.find("td").eq(0).find("span")[0]).text()
             link = $(jresult.find("a[href^=magnet]")[0]).attr("href")
-            desc = $(jresult.find("td")[1]).find(".detDesc").eq(0).text()
-            seeds = jresult.find("td").eq(2).text()
-            leeds = jresult.find("td").eq(3).text()
-            torrent = new Torrent(name, leeds, seeds, link, desc)
+            seeds = jresult.find("td").eq(3).text()
+            leeds = jresult.find("td").eq(4).text()
+            torrent = new Torrent(name, leeds, seeds, link, '')
             torrentList.push(torrent)
         $scope.torrentList = torrentList
 
