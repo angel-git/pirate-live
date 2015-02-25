@@ -33,7 +33,7 @@
                     <table class="table" ng-if="serieSelected == serie && torrentList.length > 0">
                         <thead>
                         <tr>
-                            <th>torrent</th>
+                            <th>torrent name</th>
                             <th>seeds</th>
                             <th>leeds</th>
                         </tr>
@@ -41,7 +41,7 @@
                         <tbody>
                         <tr ng-repeat="torrent in torrentList">
                             <td>
-                                <div><a href="{{torrent.link}}">{{torrent.name}}</a></div>
+                                <div><a class="ep-title" href="{{torrent.link}}">{{torrent.name}}</a></div>
                                 <div>{{torrent.desc}}</div>
                             </td>
                             <td>{{torrent.seeds}}</td>

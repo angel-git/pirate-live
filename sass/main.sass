@@ -112,19 +112,28 @@ a
 .navbar-toggle.collapsed
   margin: 31px 30px
 
-table.table tbody tr
-  &:hover
-    background-color: lighten($main-background-color, 10)
-  &.firstep
-    background-color: $episode-first-background-color
-  &.lastep
-    background-color: $episode-last-background-color
+
 
 .panel.panel-default
   &.firstep
     background-color: $episode-first-background-color
+    table.table tbody tr
+      background-color: $episode-first-background-color
+      &:hover
+        background-color: lighten($episode-first-background-color, 5)
   &.lastep
     background-color: $episode-last-background-color
+    table.table tbody tr
+      background-color: $episode-last-background-color
+      &:hover
+        background-color: lighten($episode-last-background-color, 5)
+
+  table.table tbody tr
+    &:hover
+      background-color: lighten($main-background-color, 5)
+    .ep-title
+      font-weight: bold
+
 
 .torrent-list
   width: 100%
