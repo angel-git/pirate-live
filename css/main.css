@@ -89,17 +89,22 @@ a {
 .navbar-toggle.collapsed {
   margin: 31px 30px; }
 
-table.table tbody tr:hover {
-  background-color: white; }
-table.table tbody tr.firstep {
-  background-color: #def7e8; }
-table.table tbody tr.lastep {
-  background-color: #f7dede; }
-
 .panel.panel-default.firstep {
   background-color: #def7e8; }
+  .panel.panel-default.firstep table.table tbody tr {
+    background-color: #def7e8; }
+    .panel.panel-default.firstep table.table tbody tr:hover {
+      background-color: #f3fcf6; }
 .panel.panel-default.lastep {
   background-color: #f7dede; }
+  .panel.panel-default.lastep table.table tbody tr {
+    background-color: #f7dede; }
+    .panel.panel-default.lastep table.table tbody tr:hover {
+      background-color: #fcf3f3; }
+.panel.panel-default table.table tbody tr:hover {
+  background-color: white; }
+.panel.panel-default table.table tbody tr .ep-title {
+  font-weight: bold; }
 
 .torrent-list {
   width: 100%;
