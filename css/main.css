@@ -163,3 +163,14 @@ a {
 
 #today {
   font-size: 1.5em; }
+
+.star {
+  color: #202b48;
+  font-size: 3em;
+  position: relative;
+  bottom: 24px;
+  width: 50px; }
+  .star.selected {
+    color: #8049f0; }
+  .star:hover {
+    color: #4997f0; }

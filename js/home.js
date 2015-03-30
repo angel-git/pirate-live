@@ -1,5 +1,5 @@
 (function() {
-  var Serie, Torrent, calendarContent, month, monthNames, parseCalendar, parseEpisode, today;
+  var Serie, Torrent, calendarContent, isSerieStarred, month, monthNames, parseCalendar, parseEpisode, today;
 
   calendarContent = '';
 
@@ -86,7 +86,7 @@
         return today.setDate(today.getDate() + 1);
       }
     };
-    return $scope.nextDay = function() {
+    $scope.nextDay = function() {
       today.setDate(today.getDate() + 1);
       if (month === today.getMonth()) {
         return searchSeries(today);
@@ -94,6 +94,18 @@
         return today.setDate(today.getDate() - 1);
       }
     };
+    return $scope.starShow = (function(_this) {
+      return function(serie, e) {
+        e.stopPropagation();
+        if (localStorage.getItem(serie.serie) === null) {
+          localStorage.setItem(serie.serie, "star");
+          return serie.starred = true;
+        } else {
+          localStorage.removeItem(serie.serie);
+          return serie.starred = false;
+        }
+      };
+    })(this);
   });
 
   parseCalendar = function(todayFormat, success) {
@@ -109,7 +121,7 @@
       serieTitleString = as[0].text;
       serieEpisode = as[1];
       serieEpisodeString = parseEpisode(serieEpisode.text);
-      serie = new Serie(serieTitleString, serieEpisodeString, className, serieId);
+      serie = new Serie(serieTitleString.trim(), serieEpisodeString, className, serieId, isSerieStarred(serieTitleString.trim()));
       serieList.push(serie);
       serieId++;
     }
@@ -135,12 +147,17 @@
     return episode;
   };
 
+  isSerieStarred = function(serieName) {
+    return localStorage.getItem(serieName) != null;
+  };
+
   Serie = (function() {
-    function Serie(serie, episode, className, serieId) {
+    function Serie(serie, episode, className, serieId, starred) {
       this.serie = serie;
       this.episode = episode;
       this.className = className;
       this.serieId = serieId;
+      this.starred = starred;
     }
 
     return Serie;

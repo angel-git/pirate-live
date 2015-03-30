@@ -79,6 +79,19 @@ angular.module('home', [])
       else
         today.setDate(today.getDate()-1)
 
+    $scope.starShow = (serie,e) =>
+#      don't allow to search
+      e.stopPropagation()
+      if localStorage.getItem(serie.serie) is null
+        localStorage.setItem(serie.serie, "star")
+        serie.starred = true
+      else
+        localStorage.removeItem(serie.serie)
+        serie.starred = false
+
+
+
+
 
 parseCalendar = (todayFormat, success) ->
   divs = $(calendarContent).find(todayFormat).find('div');
@@ -91,7 +104,7 @@ parseCalendar = (todayFormat, success) ->
     serieTitleString = as[0].text
     serieEpisode = as[1]
     serieEpisodeString = parseEpisode(serieEpisode.text)
-    serie = new Serie(serieTitleString, serieEpisodeString, className, serieId)
+    serie = new Serie(serieTitleString.trim(), serieEpisodeString, className, serieId, isSerieStarred(serieTitleString.trim()))
     serieList.push(serie)
     serieId++
   success? serieList
@@ -111,10 +124,12 @@ parseEpisode = (epInput) ->
     episode += 'e' + ep
   return episode
 
+isSerieStarred = (serieName) ->
+  return localStorage.getItem(serieName)?
 
 
 class Serie
-  constructor: (@serie, @episode, @className, @serieId) ->
+  constructor: (@serie, @episode, @className, @serieId, @starred) ->
 
 class Torrent
   constructor: (@name, @leeds, @seeds, @link, @desc) ->
