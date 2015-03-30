@@ -21,6 +21,7 @@
                     <h5 class="panel-title">
                         {{serie.episode}}
                     </h5>
+                    <div class="star" ng-class="{selected: serie.starred == true}"  ng-click="starShow(serie,$event)">&#9733</div>
                 </div>
             </a>
 

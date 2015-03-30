@@ -14,6 +14,9 @@ $episode-sub-font-color: #645F80
 $btn-custom-background-color: #8049F0
 $episode-first-background-color: #DEF7E8
 $episode-last-background-color: #F7DEDE
+$star-color: #202B48
+$star-color-selected: #8049F0
+$star-color-hover: #4997F0
 
 html, body
   background-color: $body-background-color
@@ -193,3 +196,14 @@ a
 
 #today
   font-size: 1.5em
+
+.star
+  color: $star-color
+  font-size: 3em
+  position: relative
+  bottom: 24px
+  width: 50px
+  &.selected
+    color: $star-color-selected
+  &:hover
+    color: $star-color-hover
