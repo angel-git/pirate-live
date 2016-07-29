@@ -102,27 +102,12 @@ parseCalendar = (todayFormat, success) ->
     className = jdiv.find('p')[0].className
     as = jdiv.find('a')
     serieTitleString = as[0].text
-    serieEpisode = as[1]
-    serieEpisodeString = parseEpisode(serieEpisode.text)
+    serieEpisodeString = as[1].text
     serie = new Serie(serieTitleString.trim(), serieEpisodeString, className, serieId, isSerieStarred(serieTitleString.trim()))
     serieList.push(serie)
     serieId++
   success? serieList
 
-parseEpisode = (epInput) ->
-  episode = ''
-  splitted = epInput.split(' ')
-  season = splitted[1]
-  ep = splitted[4]
-  if season.length < 2
-    episode += 's0' + season
-  else
-    episode += 's' + season
-  if ep.length < 2
-    episode += 'e0' + ep
-  else
-    episode += 'e' + ep
-  return episode
 
 isSerieStarred = (serieName) ->
   return localStorage.getItem(serieName)?

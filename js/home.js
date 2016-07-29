@@ -1,5 +1,5 @@
 (function() {
-  var Serie, Torrent, calendarContent, isSerieStarred, month, monthNames, parseCalendar, parseEpisode, today;
+  var Serie, Torrent, calendarContent, isSerieStarred, month, monthNames, parseCalendar, today;
 
   calendarContent = '';
 
@@ -109,7 +109,7 @@
   });
 
   parseCalendar = function(todayFormat, success) {
-    var as, className, div, divs, jdiv, serie, serieEpisode, serieEpisodeString, serieId, serieList, serieTitleString, _i, _len;
+    var as, className, div, divs, jdiv, serie, serieEpisodeString, serieId, serieList, serieTitleString, _i, _len;
     divs = $(calendarContent).find(todayFormat).find('div');
     serieList = [];
     serieId = 0;
@@ -119,32 +119,12 @@
       className = jdiv.find('p')[0].className;
       as = jdiv.find('a');
       serieTitleString = as[0].text;
-      serieEpisode = as[1];
-      serieEpisodeString = parseEpisode(serieEpisode.text);
+      serieEpisodeString = as[1].text;
       serie = new Serie(serieTitleString.trim(), serieEpisodeString, className, serieId, isSerieStarred(serieTitleString.trim()));
       serieList.push(serie);
       serieId++;
     }
     return typeof success === "function" ? success(serieList) : void 0;
-  };
-
-  parseEpisode = function(epInput) {
-    var ep, episode, season, splitted;
-    episode = '';
-    splitted = epInput.split(' ');
-    season = splitted[1];
-    ep = splitted[4];
-    if (season.length < 2) {
-      episode += 's0' + season;
-    } else {
-      episode += 's' + season;
-    }
-    if (ep.length < 2) {
-      episode += 'e0' + ep;
-    } else {
-      episode += 'e' + ep;
-    }
-    return episode;
   };
 
   isSerieStarred = function(serieName) {
